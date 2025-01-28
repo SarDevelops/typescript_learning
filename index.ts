@@ -261,3 +261,35 @@ type Status = "active" | "inactive" | "pending";
 
 let useStatus: Status = 'active';
 console.log(useStatus);
+
+// recursive use
+type Tree = {
+    value: string,
+    children: Tree[],
+}
+
+let tree: Tree = {
+    value: 'abc',
+    children: [
+        {
+            value: 'xyz',
+            children: [
+                {
+                    value: 'pqr',
+                    children: []
+                }
+            ]
+        }
+    ],
+}
+
+//  ?: -> optional property 
+
+// intersection types
+
+let config: { server: string, port: number } & { secure: boolean, timeout: number } = {
+    server: 'localhost',
+    port: 8080,
+    secure: true,
+    timeout: 1000
+}
